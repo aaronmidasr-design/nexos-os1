@@ -351,9 +351,10 @@ function TerminalApp() {
       out.push({type:"sys",text:"Wake up, Neo..."});
     }
     else if(c==="neofetch"){
-      [{k:"OS",v:"NEXOS Personal v1.0"},{k:"Kernel",v:"React 18"},{k:"Shell",v:"nexosh v1.0"},
-       {k:"Resolução",v:`${window.innerWidth}x${window.innerHeight}`},{k:"Memória",v:"∞ (cloud)"},{k:"Tema",v:"Dark Nebula"}
-      ].forEach(({k,v})=>out.push({type:"info",text:`  ${k.padEnd(14)} ${v}`}));
+      var nfData=[{k:"OS",v:"NEXOS Personal v1.0"},{k:"Kernel",v:"React 18"},{k:"Shell",v:"nexosh v1.0"},
+       {k:"Resolucao",v:window.innerWidth+"x"+window.innerHeight},{k:"Memoria",v:"infinita (cloud)"},{k:"Tema",v:"Dark Nebula"}
+      ];
+      nfData.forEach(function(item){out.push({type:"info",text:"  "+item.k.padEnd(14)+" "+item.v});});
     }
     else out.push({type:"err",text:`nexosh: comando não encontrado: ${cmd}`});
     setHistory(h=>[...h,...out]);
